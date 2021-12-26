@@ -1,0 +1,2 @@
+#!/bin/bash
+dhcp-lease-list 2> /dev/null | cut -c 20-30 | sed '1,3d'
