@@ -10,8 +10,13 @@ do
   updates[$i]=$!
 done
 
-for ip in "${updates[@]}";
+for ip in "${!updates[@]}";
 do 
-  echo "Updating $ip at PID ${updates[$ip]}"
+  echo "Waiting for $ip at PID ${updates[$ip]}"
   wait ${updates[$ip]}
+  echo "out:"
+  cat ".logs/updates/$ip.out"
+  echo "err:"
+  cat ".logs/updates/$ip.err"
+  echo "=================================================================="
 done
