@@ -1,5 +1,17 @@
 #!/bin/bash
 
-for i in $(./nodes); do
-  ssh "root@$i" "pacman -Syu $1"
+declare -A updates
+
+mkdir -p .logs/updates
+
+for i in $(./nodes);
+do
+  ssh "root@$i" "pacman -Syu $1" > ".logs/updates/$i.out" 2> ".logs/updates/$i.err" &
+  updates[$i]=$!
+done
+
+for ip in "${updates[@]}";
+do 
+  echo "Updating $ip at PID ${updates[$ip]}"
+  wait ${updates[$ip]}
 done
