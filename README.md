@@ -17,6 +17,10 @@ I distribute the `authorized_keys` file containing my master's keys via a script
 I use the `update-cluster` script to quickly go do things to each machine. I
 used that to make sure that I could have root access via my `authorized_keys`.
 
+I've changed the `update-cluster` script to be much more specific, and it
+allows me to maintain the same package set on each machine. I did some bespoke
+shenanigans to grab `rustup` on all of them, as well.
+
 ## Master Node
 
 First, I had to add entries to these files:
