@@ -1,5 +1,5 @@
 #!/bin/bash
 
-for i in $(./get-nodes); do
+for i in $(./nodes); do
   ssh "alarm@$i"
 done

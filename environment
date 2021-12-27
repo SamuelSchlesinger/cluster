@@ -5,4 +5,4 @@
 #
 MOZ_X11_EGL=1
 http_proxy=http://10.10.0.1:3128
-https_proxy=https://10.10.0.1:3128
+https_proxy=http://10.10.0.1:3128
