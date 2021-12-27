@@ -14,6 +14,9 @@ to the internet through the squid proxy.
 
 I distribute the `authorized_keys` file containing my master's keys via a script.
 
+I use the `update-cluster` script to quickly go do things to each machine. I
+used that to make sure that I could have root access via my `authorized_keys`.
+
 ## Master Node
 
 First, I had to add entries to these files:
