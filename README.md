@@ -12,6 +12,8 @@ valid `ssh` credentials that you know of and can be accessed via `ssh`.
 I needed to add to the `/etc/environment` file as well in order to allow access
 to the internet through the squid proxy.
 
+I distribute the `authorized_keys` file containing my master's keys via a script.
+
 ## Master Node
 
 First, I had to add entries to these files:
