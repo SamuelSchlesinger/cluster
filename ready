@@ -1,0 +1,22 @@
+#!/bin/bash
+
+declare -A ready
+
+mkdir -p .logs/ready
+
+for i in $(./nodes);
+do
+  ssh "root@$i" "systemctl --failed" > ".logs/ready/$i.out" 2> ".logs/ready/$i.err" &
+  ready[$i]=$!
+done
+
+for ip in "${!ready[@]}";
+do 
+  echo "Waiting for $ip at PID ${ready[$ip]}"
+  wait ${ready[$ip]}
+  echo "out:"
+  cat ".logs/ready/$ip.out"
+  echo "err:"
+  cat ".logs/ready/$ip.err"
+  echo "=================================================================="
+done

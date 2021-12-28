@@ -1,0 +1,19 @@
+#!/bin/bash
+
+declare -A script
+
+mkdir -p .logs/script
+
+for i in $(./nodes);
+do
+  ssh "root@$i" "$1" > ".logs/script/$i.out" 2>&1 &
+  script[$i]=$!
+done
+
+for ip in "${!script[@]}";
+do 
+  echo "$ip (PID: ${script[$ip]})"
+  wait ${script[$ip]}
+  cat ".logs/script/$ip.out"
+  echo "=================================================================="
+done

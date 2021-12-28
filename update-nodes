@@ -6,7 +6,7 @@ mkdir -p .logs/updates
 
 for i in $(./nodes);
 do
-  ssh "root@$i" "pacman -Syu $1" > ".logs/updates/$i.out" 2> ".logs/updates/$i.err" &
+  ssh "root@$i" "pacman --noconfirm -Syu $1" > ".logs/updates/$i.out" 2> ".logs/updates/$i.err" &
   updates[$i]=$!
 done
 
