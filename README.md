@@ -49,4 +49,4 @@ configured to use this proxy as well.
 
 ## Scripts
 
-The `./get-nodes` script can be used to list the nodes on such a network.
+The `./nodes` script can be used to list the IPs of nodes on the network.
