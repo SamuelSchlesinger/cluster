@@ -6,7 +6,7 @@ mkdir -p .logs/script
 
 for i in $(./nodes);
 do
-  ssh "root@$i" "$1" > ".logs/script/$i.out" 2>&1 &
+  ssh "samuel@$i" "$1" > ".logs/script/$i.out" 2>&1 &
   script[$i]=$!
 done
 
