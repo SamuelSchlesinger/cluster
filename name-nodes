@@ -6,7 +6,7 @@ mkdir -p .logs/names
 
 for i in $(./nodes);
 do
-  ssh "alarm@$i" "cat /usr/share/dict/cracklib-small | shuf -n 1 | tr -cd \"[:alnum:]._-\" > ~/name.txt" > ".logs/names/$i.out" 2> ".logs/names/$i.err" &
+  ssh "samuel@$i" "cat /usr/share/dict/cracklib-small | shuf -n 1 | tr -cd \"[:alnum:]._-\" > ~/name.txt" > ".logs/names/$i.out" 2> ".logs/names/$i.err" &
   names[$i]=$!
 done
 

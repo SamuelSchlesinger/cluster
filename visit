@@ -1,5 +1,5 @@
 #!/bin/bash
 
 for i in $(./nodes); do
-  ssh "samuel@$i"
+  ssh "root@$i"
 done
