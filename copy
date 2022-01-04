@@ -6,7 +6,7 @@ mkdir -p .logs/script
 
 for i in $(./nodes);
 do
-  scp "$1" "samuel@$i:/$2" > ".logs/script/$i.out" 2>&1 &
+  scp "$1" "root@$i:/$2" > ".logs/script/$i.out" 2>&1 &
   script[$i]=$!
 done
 

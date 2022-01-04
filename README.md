@@ -21,6 +21,12 @@ I've changed the `update-cluster` script to be much more specific, and it
 allows me to maintain the same package set on each machine. I did some bespoke
 shenanigans to grab `rustup` on all of them, as well.
 
+I've named each of the nodes and used `hostnamectl` to set their hostnames to
+the names I selected.
+
+I've copied in the `erlang.service` to every node so they always have an
+`erlang` node running. Thus, they can serve as an Erlang development platform.
+
 ## Master Node
 
 First, I had to add entries to these files:
@@ -46,6 +52,7 @@ credentials I had set up on each node.
 I started the `squid` http proxy and edited `/etc/squid/squid.conf`, replacing
 `http_access deny all` with `http_access allow all`. The workers have to be
 configured to use this proxy as well.
+
 
 ## Scripts
 

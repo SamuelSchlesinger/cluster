@@ -1,0 +1,14 @@
+[Unit]
+Description=Erlang Node
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=samuel
+ExecStart=/bin/erl -sname node -noshell -noshell -noinput -setcookie bigsecret
+
+[Install]
+WantedBy=multi-user.target
